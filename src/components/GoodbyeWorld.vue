@@ -1,6 +1,6 @@
 <template>
   <div class="section">
-    <h1>Hello <span class="country-name">{{ $route.params.country || 'World' }}</span></h1>
+    <h1>Goodbye <span class="country-name">{{ $route.params.country || 'World' }}</span></h1>
     <router-view v-if="$route.params.country"/>
     <div class="countries-wrap" v-else>
       <countries-list/>

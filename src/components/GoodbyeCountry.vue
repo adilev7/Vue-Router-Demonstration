@@ -12,7 +12,7 @@
   import { useRouter } from "vue-router";
   const router = useRouter();
   const props = defineProps({ country: String })
-  const country = ref('');
+  const country = ref(null);
   onBeforeMount(async () => {
     try {
       const countriesResponse = await fetch(`https://restcountries.com/v3.1/name/${props.country}?fields=name,languages,capital`, {

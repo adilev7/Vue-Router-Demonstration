@@ -15,18 +15,22 @@ const router = createRouter({
       redirect: "/hello"
     },
     {
+      name: 'hello-world',
       path: "/hello",
       component: HelloWorld,
       children: [{
+        name: 'hello-country',
         path: ':country',
         component: HelloCountry,
         props: true
       }],
     },
     {
+      name: 'goodbye-world',
       path: "/goodbye",
       component: GoodbyeWorld,
       children: [{
+        name: 'goodbye-country',
         path: ':country',
         component: GoodbyeCountry,
         props: true

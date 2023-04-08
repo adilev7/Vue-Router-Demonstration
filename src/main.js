@@ -22,7 +22,11 @@ const router = createRouter({
         name: 'hello-country',
         path: ':country',
         component: HelloCountry,
-        props: true
+        props: true,
+        beforeEnter(to, from, next) {
+          console.log('Route beforeEnter (route)', {from: from.path, to: to.path});
+          next(true);
+        }
       }],
     },
     {
@@ -33,8 +37,12 @@ const router = createRouter({
         name: 'goodbye-country',
         path: ':country',
         component: GoodbyeCountry,
-        props: true
-      }]
+        props: true,
+        beforeEnter(to, from, next) {
+          console.log('Route beforeEnter (route)', {from: from.path, to: to.path});
+          next(true);
+        }
+      }],
     },
     {
       path: "/:notFound(.*)",
@@ -48,6 +56,11 @@ const router = createRouter({
     }
     return { left: 0, top: 0 };
   }
+});
+
+router.beforeEach((to, from, next) => {
+  console.log('Global beforeEach (route)', {from: from.path, to: to.path});
+  next(true)
 });
 
 createApp(App).use(router).mount("#app");

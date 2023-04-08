@@ -9,7 +9,18 @@
 </template>
 
 <script setup>
+import { onBeforeRouteLeave, onBeforeRouteUpdate } from 'vue-router';
 import CountriesList from './CountriesList.vue'
+
+onBeforeRouteUpdate((to, from, next) => {
+  console.log('Component beforeRouteUpdate', {from: from.path, to: to.path});
+  next();
+});
+
+onBeforeRouteLeave((to, from, next) => {
+  console.log('Component beforeRouteLeave', {from: from.path, to: to.path});
+  next();
+});
 </script>
 
 <style scoped>

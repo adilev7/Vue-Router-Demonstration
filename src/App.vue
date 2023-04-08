@@ -74,7 +74,7 @@ nav ul li a:hover {
 }
 
 nav ul li a:active,
-nav ul li a.router-link-active {
+nav ul li a.is-active {
   text-decoration: underline;
   background-color: rgb(14, 14, 32);
   color: orange;
@@ -99,6 +99,7 @@ nav ul li a.router-link-active {
     0 0 0 2px rgb(190, 190, 190),
     0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
+
 .btn {
   display: block;
   width: fit-content;
@@ -117,11 +118,13 @@ nav ul li a.router-link-active {
   background-color: transparent;
   color: rgb(14, 14, 32);
 }
+
 .section {
   width: fit-content;
   margin: 0 auto;
   text-align: center;
 }
+
 .loading-state {
   margin: 1em;
   padding: 1em;

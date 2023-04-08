@@ -21,6 +21,7 @@ const router = createRouter({
       children: [{
         name: 'hello-country',
         path: ':country',
+        meta: { needsAuth: true },
         component: HelloCountry,
         props: true,
         beforeEnter(to, from, next) {
@@ -60,7 +61,16 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   console.log('Global beforeEach (route)', {from: from.path, to: to.path});
-  next(true)
+  if(to.meta.needsAuth) {
+    /*if(!isAuthenticated) {
+      // next(false)
+      next('/')
+      return;
+    }*/
+    console.log('Authentication check - Global beforeEach (route)');
+    next(true)
+  }
+  next();
 });
 
 createApp(App).use(router).mount("#app");
